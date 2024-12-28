@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 16:27:52 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/12/28 16:27:53 by tkitahar         ###   ########.fr       */
+/*   Created: 2024/04/24 13:22:30 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/12/28 22:08:36 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include <pthread.h>
+#include "minilibft.h"
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (*s++)
+		i++;
+	return (i);
+}
