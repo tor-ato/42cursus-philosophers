@@ -18,9 +18,9 @@ void	parse_input(t_table *table, char **av)
 	table->time_to_die = ft_atol(av[2]) * MS;
 	table->time_to_eat = ft_atol(av[3]) * MS;
 	table->time_to_sleep = ft_atol(av[4]) * MS;
-	if (table->time_to_die < SIXTY_MS
-	 || table->time_to_eat < SIXTY_MS
-	 || table->time_to_sleep < SIXTY_MS)
+	if (table->time_to_die < SIXTY_MS || \
+		table->time_to_eat < SIXTY_MS || \
+		table->time_to_sleep < SIXTY_MS)
 		print_error_exit(E_MAJOR_SIXTY_MS_ARG);
 	if (!av[5])
 		table->nbr_limit_meals = -1;

@@ -15,6 +15,7 @@
 void	print_error_exit(const char *message)
 {
 	size_t		len;
+
 	len = ft_strlen(message);
 	write(STDERR_FILENO, message, len);
 	exit(EXIT_FAILURE);
