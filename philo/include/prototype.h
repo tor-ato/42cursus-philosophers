@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   prototype.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 17:57:35 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/12/28 22:03:03 by tkitahar         ###   ########.fr       */
+/*   Created: 2024/12/30 17:59:10 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/12/30 18:00:35 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef PROTOTYPE_H
+# define PROTOTYPE_H
+# include "philo.h"
 
-int main(int ac, char **av)
-{
-	(void) av;
-	t_table	table;
+void	parse_input(t_table *table, char **av);
 
-	if (ac != 5 && ac != 6)
-		print_error_exit(USAGE);
-	parse_input(&table, av);
-	// init_data(&talbe);
-	// start_dinner(&table);
-	// clean_data(&table);
-	return (0);
-}
+#endif

@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 19:23:28 by tkitahar          #+#    #+#              #
-#    Updated: 2024/12/28 21:54:12 by tkitahar         ###   ########.fr        #
+#    Updated: 2024/12/30 18:05:40 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,14 @@ OBJ_DIR:=obj
 
 CFLAGS:=-Wall -Wextra -Werror -Iinclude -Isrc
 
-SRC:=	\
-		src/minilibft/ft_strlen.c \
+SRC:= src/main.c \
+		src/parse.c \
 		src/error/error.c \
-		src/main.c
+		src/minilibft/ft_strlen.c \
+		src/minilibft/ft_atol.c \
+		src/minilibft/ft_isdigit.c \
+		src/minilibft/ft_isspace.c \
+		
 
 OBJ:=$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 

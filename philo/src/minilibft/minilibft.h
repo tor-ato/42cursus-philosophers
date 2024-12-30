@@ -14,9 +14,9 @@
 # define MINILIBFT_H
 # include "philo.h"
 
-#include <errno.h>
-#include <limits.h>
-#include <stddef.h>
+# include <errno.h>
+# include <limits.h>
+# include <stddef.h>
 
 int		ft_isspace(int c);
 int		ft_isdigit(int c);

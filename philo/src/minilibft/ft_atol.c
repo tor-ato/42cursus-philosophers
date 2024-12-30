@@ -12,47 +12,37 @@
 
 #include "minilibft.h"
 
-static int	read_up_to_sign(const char **s)
+static const char	*valid_input(const char *str)
 {
-	while (**s && ft_isspace(**s))
-		(*s)++;
-	if (**s && **s == '-')
-	{
-		(*s)++;
-		return (-1);
-	}
-	if (**s && **s == '+')
-		(*s)++;
-	return (1);
-}
+	int			len;
+	const char	*number;
 
-static int is_overflow(int sign, unsigned long num, unsigned long x)
-{
-    if (sign == 1)
-        return (LONG_MAX / 10 < num || LONG_MAX - num * 10 < x);
-    else
-        return (num > LONG_MIN / -10 || x > -(LONG_MIN + num * 10));
+	len = 0;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '+')
+		++str;
+	else if (*str == '-')
+		print_error_exit(E_NON_MINUS_ARG);
+	if (!ft_isdigit(*str))
+		print_error_exit(E_NON_NUMERIC_ARG);
+	number = str;
+	while (ft_isdigit(*str++))
+		++len;
+	if (len > 10)
+		print_error_exit(E_INTMAX_LIMT_ARG);
+	return (number);
 }
 
 long	ft_atol(const char *str)
 {
-	int				sign;
-	unsigned long	num;
-	unsigned long	x;
+	long	num;
 
 	num = 0;
-	sign = read_up_to_sign(&str);
-	while (*str && ft_isdigit(*str))
-	{
-		x = *str++ - '0';
-		if (is_overflow(sign, num, x))
-		{
-			errno = ERANGE;
-			if (sign > 0)
-				return (LONG_MAX);
-			return (LONG_MIN);
-		}
-		num = num * 10 + x;
-	}
-	return (sign * num);
+	str = valid_input(str);
+	while (ft_isdigit(*str))
+		num = (num * 10) + (*str++ - '0');
+	if (num > INT_MAX)
+		print_error_exit(E_INTMAX_LIMT_ARG);
+	return (num);
 }

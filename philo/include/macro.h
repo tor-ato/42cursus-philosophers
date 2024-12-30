@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   macro.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 17:57:35 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/12/28 22:03:03 by tkitahar         ###   ########.fr       */
+/*   Created: 2024/12/30 17:01:53 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/12/30 17:04:02 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef MACRO_H
+# define MACRO_H
 
-int main(int ac, char **av)
-{
-	(void) av;
-	t_table	table;
-
-	if (ac != 5 && ac != 6)
-		print_error_exit(USAGE);
-	parse_input(&table, av);
-	// init_data(&talbe);
-	// start_dinner(&table);
-	// clean_data(&table);
-	return (0);
-}
+# include"philo.h"
+# define MS 1e3
+# define SIXTY_MS 6e4
+#endif
