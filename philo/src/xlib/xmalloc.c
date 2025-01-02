@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   xmalloc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 16:27:52 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/12/30 18:02:29 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/01/02 16:43:08 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/01/02 16:49:45 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PHILO_H
-# define PHILO_H
 
-# include <stdlib.h>
-# include <stdbool.h>
-# include <pthread.h>
-# include <error.h>
+#include "philo.h"
 
-# include "struct.h"
-# include "macro.h"
-# include "prototype.h"
-# include "error/error.h"
-# include "parse/parse.h"
-# include "minilibft/minilibft.h"
-# include "xlib/xlib.h"
-#endif
+void	*xmalloc(size_t	bytes)
+{
+	void	*ret;
+
+	ret = malloc(bytes);
+	if (NULL == ret)
+		print_error_exit(E_MALLOC);
+	return (ret);
+}

@@ -18,12 +18,12 @@ OBJ_DIR:=obj
 CFLAGS:=-Wall -Wextra -Werror -Iinclude -Isrc
 
 SRC:= src/main.c \
-		src/parse.c \
 		src/error/error.c \
+		src/parse/parse.c \
 		src/minilibft/ft_strlen.c \
 		src/minilibft/ft_atol.c \
 		src/minilibft/ft_isdigit.c \
-		src/minilibft/ft_isspace.c \
+		src/minilibft/ft_isspace.c 
 		
 
 OBJ:=$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))

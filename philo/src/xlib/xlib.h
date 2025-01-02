@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   xlib.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 16:27:52 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/12/30 18:02:29 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/01/02 16:42:59 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/01/02 19:01:39 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PHILO_H
-# define PHILO_H
 
-# include <stdlib.h>
-# include <stdbool.h>
-# include <pthread.h>
-# include <error.h>
+#ifndef XLIB_H
+# define XLIB_H
+# include "philo.h"
 
-# include "struct.h"
-# include "macro.h"
-# include "prototype.h"
-# include "error/error.h"
-# include "parse/parse.h"
-# include "minilibft/minilibft.h"
-# include "xlib/xlib.h"
+void	*xmalloc(size_t	bytes);
+void	xmutex_handle(t_mtx *mutex, t_opcode opcode);
+void	xthread_handle(pthread_t *thread, void *(*func)(void *), \
+					void *data, t_opcode opcode);
+
+# define E_MALLOC "Error: malloc"
+# define E_MUTEX_OPCODE "Error: Wrong opcode for mutex handle"
+
 #endif
