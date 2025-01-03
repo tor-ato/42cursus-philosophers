@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 17:52:49 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/02 18:06:29 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:12:08 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 	else if (EINVAL == status && INIT == opcode)
 		print_error_exit("Error: The value specified by atter is invalid.");
 	else if (EDEADLK == status)
-		print_error_exit("Error: A dead lock would occer if the thread blocked wating for mutex.");
+		print_error_exit("Error: A dead lock would occer if the thread blocked "
+			"wating for mutex.");
 	else if (EPERM == status)
-		print_error_exit("Error: The current thread does not hold alock on mutex.");
+		print_error_exit("Error: The current thread does not hold alock on "
+			"mutex.");
 	else if (ENOMEM == status)
-		print_error_exit("Error: The process cannnot allocate enough memory to creat another mutex.");
+		print_error_exit("Error: The process cannnot allocate enough memory "
+			"to creat another mutex.");
 	else if (EBUSY == status)
 		print_error_exit("Error: Mutex is lockded.");
 }

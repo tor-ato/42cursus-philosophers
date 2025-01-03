@@ -6,13 +6,13 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 19:20:02 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/02 19:31:46 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:06:19 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void assign_forks(t_philo *philo, t_fork *forks, int philo_position)
+static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 {
 	int	philo_nbr;
 
@@ -28,8 +28,8 @@ static void assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 
 static void	init_philo(t_table *table)
 {
-	int philo_position;
-	t_philo *philo;
+	int		philo_position;
+	t_philo	*philo;
 
 	philo_position = -1;
 	while (++philo_position < table->philo_nbr)
