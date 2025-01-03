@@ -20,7 +20,7 @@ int main(int ac, char **av)
 	if (ac != 5 && ac != 6)
 		print_error_exit(USAGE);
 	parse_input(&table, av);
-	// init_data(&talbe);
+	init_table(&table);
 	// start_dinner(&table);
 	// clean_data(&table);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 16:27:52 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/12/30 18:02:29 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:51:07 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PHILO_H
@@ -20,6 +20,7 @@
 # include "struct.h"
 # include "macro.h"
 # include "prototype.h"
+# include "init/init.h"
 # include "error/error.h"
 # include "parse/parse.h"
 # include "minilibft/minilibft.h"

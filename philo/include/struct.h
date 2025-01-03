@@ -59,7 +59,7 @@ typedef struct s_philo
 	t_fork		*first_fork;
 	t_fork		*second_fork;
 	pthread_t	thread_id;
-	t_table *table;
+	t_table 	*table;
 }	t_philo;
 
 #endif

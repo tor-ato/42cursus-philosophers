@@ -43,7 +43,7 @@ static void	init_philo(t_table *table)
 	}
 }
 
-void	init_data(t_table *table)
+void	init_table(t_table *table)
 {
 	int	i;
 
