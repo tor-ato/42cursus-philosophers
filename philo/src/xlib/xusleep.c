@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macro.h                                            :+:      :+:    :+:   */
+/*   xusleep.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 17:01:53 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/05 17:19:24 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/01/05 18:15:55 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/01/05 18:22:21 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACRO_H
-# define MACRO_H
+#include "philo.h"
 
-# include"philo.h"
-# define MS 1e3
-# define SIXTY_MS 6e4
-# define ONE_MILLION 1e6
-# define ONE_THOUSAND 1e3
-#endif
+void	xuleep(long usec, t_table *table)
+{
+	long	start;
+	long	elapsed;
+	long	rem;
+
+	start = gettime(MILLISECOND);
+	while (gettime(MILLISECOND) - start < usec)
+	{
+		if (finished_simulation(table))
+			break;
+		elapsed = gettime(MICROSECOND) - start;
+		rem = usec- elapsed;
+		if (rem > ONE_THOUSAND)
+			usleep(rem / 2);
+		else
+		{
+			while (gettime(MILLISECOND) - start < usec)
+				;
+		}
+	}
+}

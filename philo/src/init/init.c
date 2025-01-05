@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 19:20:02 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/03 14:06:19 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/05 19:54:46 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	init_philo(t_table *table)
 		philo->full = false;
 		philo->meals_counter = 0;
 		philo->table = table;
+		xmutex_handle(&philo->philo_mutex, INIT);
 		assign_forks(philo, table->forks, philo_position);
 	}
 }
@@ -50,6 +51,8 @@ void	init_table(t_table *table)
 	i = -1;
 	table->end_simulation = false;
 	table->philos = xmalloc(sizeof(t_philo) * table->philo_nbr);
+	xmutex_handle(&table->table_mutex, INIT);
+	xmutex_handle(&table->write_mutex, INIT);
 	table->forks = xmalloc(sizeof(t_fork) * table->philo_nbr);
 	while (++i < table->philo_nbr)
 	{

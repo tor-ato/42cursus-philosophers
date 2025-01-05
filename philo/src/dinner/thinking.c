@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macro.h                                            :+:      :+:    :+:   */
+/*   thinking.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 17:01:53 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/05 17:19:24 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/01/05 21:19:10 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/01/05 21:22:59 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACRO_H
-# define MACRO_H
+# include "philo.h"
 
-# include"philo.h"
-# define MS 1e3
-# define SIXTY_MS 6e4
-# define ONE_MILLION 1e6
-# define ONE_THOUSAND 1e3
-#endif
+void	thinking(t_philo *philo)
+{
+	write_status(THINKING, philo);
+}

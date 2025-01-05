@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 19:23:28 by tkitahar          #+#    #+#              #
-#    Updated: 2025/01/03 14:02:04 by tkitahar         ###   ########.fr        #
+#    Updated: 2025/01/05 21:10:23 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,15 @@ OBJ_DIR:=obj
 CFLAGS:=-Wall -Wextra -Werror -Iinclude -Isrc
 
 SRC:= src/main.c \
+	  	src/dinner/dinner.c \
+		src/dinner/gettime.c \
+		src/dinner/write_status.c \
+		src/dinner/eat.c \
 		src/init/init.c \
 		src/error/error.c \
 		src/parse/parse.c \
+		src/getset/getset.c \
+		src/synchro/synchro.c \
 		src/minilibft/ft_strlen.c \
 		src/minilibft/ft_atol.c \
 		src/minilibft/ft_isdigit.c \

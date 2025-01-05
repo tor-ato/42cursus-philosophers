@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macro.h                                            :+:      :+:    :+:   */
+/*   dinner.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 17:01:53 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/05 17:19:24 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/01/03 14:22:08 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/01/05 21:22:52 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACRO_H
-# define MACRO_H
+#ifndef DINNER_H
+# define DINNER_H
 
-# include"philo.h"
-# define MS 1e3
-# define SIXTY_MS 6e4
-# define ONE_MILLION 1e6
-# define ONE_THOUSAND 1e3
+# include "philo.h"
+long	gettime(t_time_code time_code);
+void	write_status(t_philo_status status, t_philo *philo);
+void	eat(t_philo *philo);
+void	thinking(t_philo *philo);
 #endif
