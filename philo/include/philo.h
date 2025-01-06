@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 16:27:52 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/05 21:11:19 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:17:39 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PHILO_H
@@ -25,6 +25,7 @@
 # include "prototype.h"
 # include "philo.h"
 # include "init/init.h"
+# include "clean/clean.h"
 # include "error/error.h"
 # include "parse/parse.h"
 # include "xlib/xlib.h"

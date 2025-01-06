@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 17:57:35 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/03 14:03:58 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:18:37 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av)
 		print_error_exit(USAGE);
 	parse_input(&table, av);
 	init_table(&table);
-	// start_dinner(&table);
-	// clean_data(&table);
+	start_dinner(&table);
+	clean(&table);
 	return (0);
 }

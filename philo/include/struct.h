@@ -50,18 +50,20 @@ typedef struct s_philo	t_philo;
 
 typedef struct s_table
 {
-	long	philo_nbr;
-	long	time_to_die;
-	long	time_to_eat;
-	long	time_to_sleep;
-	long	nbr_limit_meals;
-	long	start_simulation;
-	bool	end_simulation;
-	bool	ready_threads;
-	t_mtx	table_mutex;
-	t_mtx	write_mutex;
-	t_fork	*forks;
-	t_philo	*philos;
+	long		philo_nbr;
+	long		time_to_die;
+	long		time_to_eat;
+	long		time_to_sleep;
+	long		nbr_limit_meals;
+	long		start_simulation;
+	long		nbr_running_threads;
+	bool		end_simulation;
+	bool		ready_threads;
+	pthread_t	monitor;
+	t_mtx		table_mutex;
+	t_mtx		write_mutex;
+	t_fork		*forks;
+	t_philo		*philos;
 }	t_table;
 
 typedef struct s_fork

@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:38:05 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/05 21:18:28 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:25:27 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	take_forks(t_philo *philo)
 {
 	xmutex_handle(&philo->first_fork->fork, LOCK);
-	write_status(TAKE_FIRST_FORK, philo);
+	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
 	xmutex_handle(&philo->second_fork->fork, LOCK);
-	write_status(TAKE_SECOND_FORK, philo);
+	write_status(TAKE_SECOND_FORK, philo, DEBUG_MODE);
 }
 
 static void	drop_forks(t_philo *philo)
@@ -28,9 +28,9 @@ static void	drop_forks(t_philo *philo)
 
 static void	do_eat(t_philo *philo)
 {
-	set_long(&philo->philo_mutex, philo->last_meal_time, gettime(MILLISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	philo->meals_counter++;
-	write_status(EATING, philo);
+	write_status(EATING, philo, DEBUG_MODE);
 	xuleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->nbr_limit_meals > 0 && \
 		philo->meals_counter == philo->table->nbr_limit_meals)

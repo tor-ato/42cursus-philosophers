@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:02:33 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/05 16:27:54 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:28:28 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	get_bool(t_mtx *mutex, bool *value)
 	return (ret);
 }
 
-void	set_long(t_mtx *mutex, bool *dest, long value)
+void	set_long(t_mtx *mutex, long *dest, long value)
 {
 	xmutex_handle(mutex, LOCK);
 	*dest = value;

@@ -14,5 +14,5 @@
 
 void	thinking(t_philo *philo)
 {
-	write_status(THINKING, philo);
+	write_status(THINKING, philo, DEBUG_MODE);
 }
