@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dinner.h                                           :+:      :+:    :+:   */
+/*   simulate_dinner.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 14:22:08 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/07 16:40:53 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/01/07 16:39:55 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/01/07 16:40:12 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DINNER_H
-# define DINNER_H
-
 # include "philo.h"
-long	gettime(t_time_code time_code);
-void	write_status(t_philo_status status, t_philo *philo, bool debug);
-void	eat(t_philo *philo);
-void	thinking(t_philo *philo);
-void	*monitor_dinner(void *data);
-void	start_dinner(t_table *table);
-void	*alone_philo(void *arg);
-void	*simulate_dinner(void *data);
-#endif
+
+void	*simulate_dinner(void *data)
+{
+	t_philo *philo;
+
+	philo = (t_philo *)data;
+	wait_threads(philo->table);
+	increase_long(&philo->table->table_mutex, &philo->table->nbr_running_threads);
+	while (!finished_simulation(philo->table))
+	{
+		if (philo->full)
+			break ;
+		eat(philo);
+		write_status(SLEEPING, philo, DEBUG_MODE);
+		xuleep(philo->table->time_to_sleep, philo->table);
+		thinking(philo);
+	}
+	return (NULL);
+}

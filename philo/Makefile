@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 19:23:28 by tkitahar          #+#    #+#              #
-#    Updated: 2025/01/06 18:29:58 by tkitahar         ###   ########.fr        #
+#    Updated: 2025/01/07 16:41:37 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME:=philo
 SRC_DIR:=src
 OBJ_DIR:=obj
 
-CFLAGS:=-Wall -Wextra -Werror -Iinclude -Isrc -g3 -ggdb -O0
+CFLAGS:=-Wall -Wextra -Werror -Iinclude -Isrc \
+ -g3 -ggdb -O0
+ # -fsanitize=thread -g
 
 SRC:= src/main.c \
 	  	src/clean/clean.c \
@@ -25,6 +27,8 @@ SRC:= src/main.c \
 		src/dinner/eat.c \
 		src/dinner/monitor.c \
 		src/dinner/thinking.c \
+		src/dinner/simulate_dinner.c \
+		src/dinner/alone_dinner.c \
 		src/init/init.c \
 		src/error/error.c \
 		src/parse/parse.c \

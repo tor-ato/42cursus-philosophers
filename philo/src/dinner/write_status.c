@@ -48,8 +48,8 @@ void	write_status(t_philo_status status, t_philo *philo, bool debug)
 			printf("%lo %lo is thinking\n", elapsed, philo->thread_id);
 		else if (DIED == status)
 			printf("%lo %lo is died\n", elapsed, philo->thread_id);
-		xmutex_handle(&philo->table->write_mutex, UNLOCK);
 	}
 	else
 		write_satatus_debug(status, philo, elapsed);
-	}
+	xmutex_handle(&philo->table->write_mutex, UNLOCK);
+}
