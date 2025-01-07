@@ -15,17 +15,17 @@
 static void write_satatus_debug(t_philo_status status, t_philo *philo, long elapsed)
 {
 	if (TAKE_FIRST_FORK == status)
-		printf("%ld %d has teken the 1 fork\n", elapsed, philo->id);
+		printf("%ld %d %ld has teken the 1 fork\n", elapsed, philo->id, philo->thread_id);
 	else if (TAKE_SECOND_FORK == status)
-		printf("%ld %d has teken the 2 fork\n", elapsed, philo->id);
+		printf("%ld %d %ld has teken the 2 fork\n", elapsed, philo->id, philo->thread_id);
 	else if (EATING == status)
-		printf("%ld %d is eating %ld\n", elapsed, philo->id, philo->meals_counter);
+		printf("%ld %d %ld is eating %ld\n", elapsed, philo->id, philo->thread_id, philo->meals_counter);
 	else if (SLEEPING == status)
-		printf("%ld %d is sleeping\n", elapsed, philo->id);
+		printf("%ld %d %ld is sleeping\n", elapsed, philo->id, philo->thread_id);
 	else if (THINKING == status)
-		printf("%ld %d is thinking\n", elapsed, philo->id);
+		printf("%ld %d %ld is thinking\n", elapsed, philo->id, philo->thread_id);
 	else if (DIED == status)
-		printf("%ld %d has died\n", elapsed, philo->id);
+		printf("%ld %d %ld has died\n", elapsed, philo->id, philo->thread_id);
 }
 
 void	write_status(t_philo_status status, t_philo *philo, bool debug)
