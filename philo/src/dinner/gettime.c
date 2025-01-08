@@ -18,11 +18,11 @@ long	gettime(t_time_code time_code)
 
 	if (gettimeofday(&tv, NULL))
 		print_error_exit("Error: Gettimeofday.");
-	if (time_code == SECOND)
+	if (SECOND == time_code)
 		return (tv.tv_sec + (tv.tv_usec / ONE_MILLION));
-	else if (time_code == MILLISECOND)
+	else if (MILLISECOND == time_code)
 		return ((tv.tv_sec * ONE_THOUSAND) + (tv.tv_usec / ONE_THOUSAND));
-	else if (time_code == MICROSECOND)
+	else if (MICROSECOND == time_code)
 		return ((tv.tv_sec * ONE_MILLION) + tv.tv_usec);
 	else
 		print_error_exit("Error: Wrong input to gettime.");

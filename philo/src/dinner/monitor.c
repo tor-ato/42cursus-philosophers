@@ -37,6 +37,7 @@ void	*monitor_dinner(void *data)
 	while (!finished_simulation(table))
 	{
 		i = -1;
+		usleep(100);
 		while (++i < table->philo_nbr && !finished_simulation(table))
 		{
 			if (philo_died(table->philos + i))

@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-void	start_dinner(t_table *table)
+static void	start_simulate_dinners(t_table *table)
 {
 	int	i;
 
@@ -28,8 +28,29 @@ void	start_dinner(t_table *table)
 			xthread_handle(&table->philos[i].thread_id, simulate_dinner, \
 				  &table->philos[i], CREATE);
 	}
+}
+
+static void start_monitor_dinners(t_table *table)
+{
 	xthread_handle(&table->monitor, monitor_dinner, table, CREATE);
-	table->start_simulation = gettime(MICROSECOND);
+}
+
+static void set_start_time(t_table *table)
+{
+	table->start_simulation = gettime(MILLISECOND);
+}
+
+static void set_ready_threads(t_table *table)
+{
 	set_bool(&table->table_mutex, &table->ready_threads, true);
+}
+
+void	start_dinner(t_table *table)
+{
+
+	start_simulate_dinners(table);
+	start_monitor_dinners(table);
+	set_start_time(table);
+	set_ready_threads(table);
 	xthread_handle(&table->monitor, NULL, NULL, JOIN);
 }

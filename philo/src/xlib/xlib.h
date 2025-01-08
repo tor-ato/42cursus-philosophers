@@ -18,7 +18,7 @@ void	*xmalloc(size_t	bytes);
 void	xmutex_handle(t_mtx *mutex, t_opcode opcode);
 void	xthread_handle(pthread_t *thread, void *(*func)(void *), \
 					void *data, t_opcode opcode);
-void	xuleep(long usec, t_table *table);
+void	xusleep(long usec, t_table *table);
 
 # define E_MALLOC "Error: malloc"
 # define E_MUTEX_OPCODE "Error: Wrong opcode for mutex handle"

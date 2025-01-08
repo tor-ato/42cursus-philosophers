@@ -25,7 +25,8 @@ void	*simulate_dinner(void *data)
 			break ;
 		eat(philo);
 		write_status(SLEEPING, philo, DEBUG_MODE);
-		xuleep(philo->table->time_to_sleep, philo->table);
+		xusleep(philo->table->time_to_sleep, philo->table);
+		write_status(THINKING, philo, DEBUG_MODE);
 		thinking(philo);
 	}
 	return (NULL);

@@ -42,6 +42,8 @@ typedef enum e_status
 	TAKE_FIRST_FORK,
 	TAKE_SECOND_FORK,
 	DIED,
+	DEEP,
+	SHALLOW,
 }	t_philo_status;
 
 typedef struct s_table	t_table;
