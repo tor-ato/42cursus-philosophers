@@ -15,9 +15,9 @@ NAME:=philo
 SRC_DIR:=src
 OBJ_DIR:=obj
 
-CFLAGS:=-Wall -Wextra -Werror -Iinclude -Isrc \
- -g3 -ggdb -O0
- # -fsanitize=thread -g
+CFLAGS:=-Wall -Wextra -Werror -Iinclude -Isrc
+# DEBUGFLAGS:= -g3 -ggdb -O0
+# -fsanitize=thread -g3 -ggdb -O0
 
 SRC:= src/main.c \
 	  	src/clean/clean.c \
@@ -28,7 +28,9 @@ SRC:= src/main.c \
 		src/dinner/monitor.c \
 		src/dinner/thinking.c \
 		src/dinner/simulate_dinner.c \
+		src/dinner/sleeping.c \
 		src/dinner/alone_dinner.c \
+		src/dinner/join_threads.c \
 		src/init/init.c \
 		src/error/error.c \
 		src/parse/parse.c \
@@ -53,7 +55,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) -c -o $@ $<
 
 clean:
 	$(RM) $(OBJ) $(DEP)

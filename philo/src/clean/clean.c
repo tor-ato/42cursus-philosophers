@@ -15,6 +15,7 @@
 void	clean(t_table *table)
 {
 	t_philo	*philo;
+	t_fork	*fork;
 	int		i;
 
 	i = -1;
@@ -22,6 +23,12 @@ void	clean(t_table *table)
 	{
 		philo = table->philos + i;
 		xmutex_handle(&philo->philo_mutex, DESTROY);
+	}
+	i = -1;
+	while (++i < table->philo_nbr)
+	{
+		fork = table->forks + i;
+		xmutex_handle(&fork->fork, DESTROY);
 	}
 	xmutex_handle(&table->write_mutex, DESTROY);
 	xmutex_handle(&table->table_mutex, DESTROY);

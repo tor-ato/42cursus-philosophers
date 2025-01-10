@@ -23,14 +23,14 @@ static const char	*valid_input(const char *str)
 	if (*str == '+')
 		++str;
 	else if (*str == '-')
-		print_error_exit(E_NON_MINUS_ARG);
+		print_error(E_NON_MINUS_ARG);
 	if (!ft_isdigit(*str))
-		print_error_exit(E_NON_NUMERIC_ARG);
+		print_error(E_NON_NUMERIC_ARG);
 	number = str;
 	while (ft_isdigit(*str++))
 		++len;
 	if (len > 10)
-		print_error_exit(E_INTMAX_LIMT_ARG);
+		print_error(E_INTMAX_LIMT_ARG);
 	return (number);
 }
 
@@ -43,6 +43,6 @@ long	ft_atol(const char *str)
 	while (ft_isdigit(*str))
 		num = (num * 10) + (*str++ - '0');
 	if (num > INT_MAX)
-		print_error_exit(E_INTMAX_LIMT_ARG);
+		print_error(E_INTMAX_LIMT_ARG);
 	return (num);
 }

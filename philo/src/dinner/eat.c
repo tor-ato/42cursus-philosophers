@@ -28,20 +28,18 @@ static void	drop_forks(t_philo *philo)
 
 static void	do_eat(t_philo *philo)
 {
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	philo->meals_counter++;
 	write_status(EATING, philo, DEBUG_MODE);
-	printf("do_eat:start xusleep\n");
-	xusleep(philo->table->time_to_eat, philo->table);
-	printf("do_eat:finished xusleep\n");
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	if (philo->table->nbr_limit_meals > 0 && \
 		philo->meals_counter == philo->table->nbr_limit_meals)
 		set_bool(&philo->philo_mutex, &philo->full, true);
 }
 
-void	eat(t_philo *philo)
+void	eating(t_philo *philo)
 {
 	take_forks(philo);
 	do_eat(philo);
 	drop_forks(philo);
+	xusleep(philo->table->time_to_eat, philo->table);
 }

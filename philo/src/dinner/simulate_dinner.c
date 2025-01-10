@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:39:55 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/07 16:40:12 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:57:05 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void	*simulate_dinner(void *data)
 	{
 		if (philo->full)
 			break ;
-		eat(philo);
-		write_status(SLEEPING, philo, DEBUG_MODE);
-		xusleep(philo->table->time_to_sleep, philo->table);
-		write_status(THINKING, philo, DEBUG_MODE);
+		eating(philo);
+		sleeping(philo);
 		thinking(philo);
 	}
 	return (NULL);

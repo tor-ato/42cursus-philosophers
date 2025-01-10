@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 19:20:02 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/06 15:49:30 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:59:39 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ static void	init_philo(t_table *table)
 		philo->full = false;
 		philo->meals_counter = 0;
 		philo->table = table;
-		philo->last_meal_time = 0;
+		philo->last_meal_time = gettime(MILLISECOND);
 		xmutex_handle(&philo->philo_mutex, INIT);
 		assign_forks(philo, table->forks, philo_position);
 	}
 }
 
-void	init_table(t_table *table)
+int	init_table(t_table *table)
 {
 	int	i;
 
@@ -53,7 +53,14 @@ void	init_table(t_table *table)
 	table->end_simulation = false;
 	table->ready_threads = false;
 	table->philos = xmalloc(sizeof(t_philo) * table->philo_nbr);
+	if (!table->philos)
+		return (INIT);
 	table->forks = xmalloc(sizeof(t_fork) * table->philo_nbr);
+	if (!table->forks)
+	{
+		free(table->philos);
+		return (INIT_FALURE);
+	}
 	table->nbr_running_threads = 0;
 	xmutex_handle(&table->table_mutex, INIT);
 	xmutex_handle(&table->write_mutex, INIT);
@@ -63,4 +70,5 @@ void	init_table(t_table *table)
 		table->forks[i].fork_id = i;
 	}
 	init_philo(table);
+	return (INIT_SUCCESS);
 }

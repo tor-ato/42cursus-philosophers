@@ -17,20 +17,20 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 	if (status == 0)
 		return ;
 	if (EINVAL == status && (LOCK == opcode || UNLOCK == opcode))
-		print_error_exit("Error: The value specified by mutex is invalid.\n");
+		print_error("Error: The value specified by mutex is invalid.\n");
 	else if (EINVAL == status && INIT == opcode)
-		print_error_exit("Error: The value specified by atter is invalid.\n");
+		print_error("Error: The value specified by atter is invalid.\n");
 	else if (EDEADLK == status)
-		print_error_exit("Error: A dead lock would occer if the thread blocked "
+		print_error("Error: A dead lock would occer if the thread blocked "
 			"wating for mutex.\n");
 	else if (EPERM == status)
-		print_error_exit("Error: The current thread does not hold alock on "
+		print_error("Error: The current thread does not hold alock on "
 			"mutex.");
 	else if (ENOMEM == status)
-		print_error_exit("Error: The process can not allocate enough memory "
+		print_error("Error: The process can not allocate enough memory "
 			"to creat another mutex.\n");
 	else if (EBUSY == status)
-		print_error_exit("Error: The mutex could not be acquired because it "
+		print_error("Error: The mutex could not be acquired because it "
 			"was already locked.\n");
 }
 
@@ -45,5 +45,5 @@ void	xmutex_handle(t_mtx *mutex, t_opcode opcode)
 	else if (DESTROY == opcode)
 		handle_mutex_error(pthread_mutex_destroy(mutex), opcode);
 	else
-		print_error_exit(E_MUTEX_OPCODE);
+		print_error(E_MUTEX_OPCODE);
 }

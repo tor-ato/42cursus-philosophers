@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:21:54 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/06 18:23:02 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:55:52 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ static void set_ready_threads(t_table *table)
 
 void	start_dinner(t_table *table)
 {
-
 	start_simulate_dinners(table);
 	start_monitor_dinners(table);
 	set_start_time(table);
 	set_ready_threads(table);
-	xthread_handle(&table->monitor, NULL, NULL, JOIN);
+	join_threads(table);
 }

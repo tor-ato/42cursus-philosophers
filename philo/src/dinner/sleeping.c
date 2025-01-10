@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xmalloc.c                                          :+:      :+:    :+:   */
+/*   sleeping.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 16:43:08 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/01/02 16:49:45 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/01/10 15:53:49 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/01/10 15:55:42 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+# include "philo.h"
+#include "struct.h"
 
-void	*xmalloc(size_t	bytes)
+void	sleeping(t_philo *philo)
 {
-	void	*ret;
-
-	ret = malloc(bytes);
-	if (NULL == ret)
-		print_error(E_MALLOC);
-	return (ret);
+	write_status(SLEEPING, philo, DEBUG_MODE);
+	xusleep(philo->table->time_to_sleep, philo->table);
 }

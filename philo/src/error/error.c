@@ -12,11 +12,11 @@
 
 #include "error.h"
 
-void	print_error_exit(const char *message)
+int	print_error(const char *message)
 {
 	size_t		len;
 
 	len = ft_strlen(message);
 	write(STDERR_FILENO, message, len);
-	exit(EXIT_FAILURE);
+	return (EXIT_FAILURE);
 }

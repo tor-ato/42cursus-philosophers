@@ -30,6 +30,6 @@
 # define E_INTMAX_LIMT_ARG		"Error: INT_MAX is limit\n"
 # define E_MAJOR_SIXTY_MS_ARG	"Error: Use timestamp major than 60ms\n"
 
-void		print_error_exit(const char *message);
+int		print_error(const char *message);
 
 #endif

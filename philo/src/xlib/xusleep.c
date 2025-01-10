@@ -18,24 +18,18 @@ void	xusleep(long usec, t_table *table)
 	long	elapsed;
 	long	rem;
 
-	start = gettime(MILLISECOND);
-	printf("xusleep start xusleep\n");
-	while (gettime(MILLISECOND) - start < usec)
+	start = gettime(MICROSECOND);
+	while (gettime(MICROSECOND) - start < usec)
 	{
 		if (finished_simulation(table))
 			break;
-		elapsed = gettime(MILLISECOND) - start;
+		elapsed = gettime(MICROSECOND) - start;
 		rem = usec - elapsed;
 		if (rem > ONE_THOUSAND)
-		{
-			printf("aaa\n");
-			// usleep(rem / 2);
-			usleep(100);
-			printf("bbb\n");
-		}
+			usleep(rem / 2);
 		else
 		{
-			while (gettime(MILLISECOND) - start < usec)
+			while (gettime(MICROSECOND) - start < usec)
 				;
 		}
 	}

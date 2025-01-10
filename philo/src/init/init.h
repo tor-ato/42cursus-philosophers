@@ -14,5 +14,5 @@
 # define INIT_H
 # include "philo.h"
 
-void	init_table(t_table *table);
+int	init_table(t_table *table);
 #endif

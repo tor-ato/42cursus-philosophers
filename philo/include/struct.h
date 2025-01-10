@@ -16,6 +16,20 @@
 
 typedef pthread_mutex_t	t_mtx;
 
+typedef enum e_error_code
+{
+	AC_ERROR,
+	PARSE_ERROR,
+	AC_SUCCESS,
+	PARSE_SUCCESS,
+}	t_error_code;
+
+typedef enum e_init_code
+{
+	INIT_FALURE,
+	INIT_SUCCESS,
+}	t_init_code;
+
 typedef enum e_opcode
 {
 	LOCK,
@@ -49,23 +63,28 @@ typedef enum e_status
 typedef struct s_table	t_table;
 typedef struct s_fork	t_fork;
 typedef struct s_philo	t_philo;
+typedef long millisecond;
+typedef long microsecond;
+typedef long second;
+
+
 
 typedef struct s_table
 {
-	long		philo_nbr;
-	long		time_to_die;
-	long		time_to_eat;
-	long		time_to_sleep;
-	long		nbr_limit_meals;
-	long		start_simulation;
-	long		nbr_running_threads;
-	bool		end_simulation;
-	bool		ready_threads;
-	pthread_t	monitor;
-	t_mtx		table_mutex;
-	t_mtx		write_mutex;
-	t_fork		*forks;
-	t_philo		*philos;
+	long			philo_nbr;
+	millisecond		time_to_die;
+	millisecond		time_to_eat;
+	millisecond		time_to_sleep;
+	long			nbr_limit_meals;
+	long			start_simulation;
+	long			nbr_running_threads;
+	bool			end_simulation;
+	bool			ready_threads;
+	pthread_t		monitor;
+	t_mtx			table_mutex;
+	t_mtx			write_mutex;
+	t_fork			*forks;
+	t_philo			*philos;
 }	t_table;
 
 typedef struct s_fork
