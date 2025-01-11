@@ -12,8 +12,8 @@
 
 #ifndef DINNER_H
 # define DINNER_H
-
 # include "philo.h"
+
 long	gettime(t_time_code time_code);
 void	write_status(t_philo_status status, t_philo *philo, bool debug);
 void	eating(t_philo *philo);

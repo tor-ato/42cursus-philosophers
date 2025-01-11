@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include"philo.h"
+#include "philo.h"
 
 void	join_threads(t_table *table)
 {
@@ -18,6 +18,6 @@ void	join_threads(t_table *table)
 
 	i = -1;
 	while (++i < table->philo_nbr)
-		xthread_handle(&(table->philos + i)->thread_id , NULL, NULL, JOIN);
+		xthread_handle(&(table->philos + i)->thread_id, NULL, NULL, JOIN);
 	xthread_handle(&table->monitor, NULL, NULL, JOIN);
 }

@@ -15,6 +15,12 @@
 # include "philo.h"
 
 typedef pthread_mutex_t	t_mtx;
+typedef struct s_table	t_table;
+typedef struct s_fork	t_fork;
+typedef struct s_philo	t_philo;
+typedef long			t_millisecond;
+typedef long			t_microsecond;
+typedef long			t_second;
 
 typedef enum e_error_code
 {
@@ -60,21 +66,12 @@ typedef enum e_status
 	SHALLOW,
 }	t_philo_status;
 
-typedef struct s_table	t_table;
-typedef struct s_fork	t_fork;
-typedef struct s_philo	t_philo;
-typedef long millisecond;
-typedef long microsecond;
-typedef long second;
-
-
-
 typedef struct s_table
 {
 	long			philo_nbr;
-	millisecond		time_to_die;
-	millisecond		time_to_eat;
-	millisecond		time_to_sleep;
+	t_millisecond	time_to_die;
+	t_millisecond	time_to_eat;
+	t_millisecond	time_to_sleep;
 	long			nbr_limit_meals;
 	long			start_simulation;
 	long			nbr_running_threads;

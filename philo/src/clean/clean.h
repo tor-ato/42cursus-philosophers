@@ -13,5 +13,6 @@
 #ifndef CLEAN_H
 # define CLEAN_H
 # include "philo.h"
+
 void	clean(t_table *table);
 #endif

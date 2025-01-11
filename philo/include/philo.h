@@ -18,8 +18,6 @@
 # include <error.h>
 # include <stdio.h>
 # include "sys/time.h"
-
-
 # include "macro.h"
 # include "struct.h"
 # include "prototype.h"

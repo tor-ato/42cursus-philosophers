@@ -10,15 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
+#include "philo.h"
 
 void	*simulate_dinner(void *data)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)data;
 	wait_threads(philo->table);
-	increase_long(&philo->table->table_mutex, &philo->table->nbr_running_threads);
+	increase_long(&philo->table->table_mutex, \
+		&philo->table->nbr_running_threads);
 	while (!finished_simulation(philo->table))
 	{
 		if (philo->full)

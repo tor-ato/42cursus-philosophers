@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
+#include "philo.h"
 
 static void	take_forks(t_philo *philo)
 {
@@ -31,6 +31,7 @@ static void	do_eat(t_philo *philo)
 	philo->meals_counter++;
 	write_status(EATING, philo, DEBUG_MODE);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	xusleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->nbr_limit_meals > 0 && \
 		philo->meals_counter == philo->table->nbr_limit_meals)
 		set_bool(&philo->philo_mutex, &philo->full, true);
@@ -41,5 +42,4 @@ void	eating(t_philo *philo)
 	take_forks(philo);
 	do_eat(philo);
 	drop_forks(philo);
-	xusleep(philo->table->time_to_eat, philo->table);
 }

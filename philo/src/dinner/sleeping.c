@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
-#include "struct.h"
+#include "philo.h"
 
 void	sleeping(t_philo *philo)
 {

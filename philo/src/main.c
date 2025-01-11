@@ -23,7 +23,7 @@ int	ac_error(int ac)
 	return (AC_SUCCESS);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_table	table;
 

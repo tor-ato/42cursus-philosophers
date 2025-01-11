@@ -22,7 +22,7 @@ void	xusleep(long usec, t_table *table)
 	while (gettime(MICROSECOND) - start < usec)
 	{
 		if (finished_simulation(table))
-			break;
+			break ;
 		elapsed = gettime(MICROSECOND) - start;
 		rem = usec - elapsed;
 		if (rem > ONE_THOUSAND)

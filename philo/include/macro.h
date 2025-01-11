@@ -17,5 +17,5 @@
 # define SIXTY_MS 6e4
 # define ONE_MILLION 1e6
 # define ONE_THOUSAND 1e3
-# define DEBUG_MODE 1
+# define DEBUG_MODE 0
 #endif

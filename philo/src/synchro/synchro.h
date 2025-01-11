@@ -12,8 +12,8 @@
 
 #ifndef SYNCHRO_H
 # define SYNCHRO_H
-
 # include "philo.h"
+
 void	wait_threads(t_table *table);
 void	increase_long(t_mtx *mutex, long *value);
 bool	runinng_treads(t_mtx *mutex, long *runinng_treads, long philo_nbr);

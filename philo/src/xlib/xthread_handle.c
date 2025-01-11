@@ -34,7 +34,6 @@ static void	handle_thread_error(int status, t_opcode opcode)
 void	xthread_handle(pthread_t *thread, void *(*func)(void *), \
 					void *data, t_opcode opcode)
 {
-
 	if (CREATE == opcode)
 		handle_thread_error(pthread_create(thread, NULL, func, data), opcode);
 	else if (JOIN == opcode)

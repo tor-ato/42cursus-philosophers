@@ -20,27 +20,27 @@ static void	start_simulate_dinners(t_table *table)
 	if (table->nbr_limit_meals == 0)
 		return ;
 	else if (table->philo_nbr == 1)
-			xthread_handle(&table->philos[0].thread_id, alone_philo, \
-				  &table->philos[0], CREATE);
+		xthread_handle(&table->philos[0].thread_id, alone_philo, \
+			&table->philos[0], CREATE);
 	else
 	{
 		while (++i < table->philo_nbr)
 			xthread_handle(&table->philos[i].thread_id, simulate_dinner, \
-				  &table->philos[i], CREATE);
+			&table->philos[i], CREATE);
 	}
 }
 
-static void start_monitor_dinners(t_table *table)
+static void	start_monitor_dinners(t_table *table)
 {
 	xthread_handle(&table->monitor, monitor_dinner, table, CREATE);
 }
 
-static void set_start_time(t_table *table)
+static void	set_start_time(t_table *table)
 {
 	table->start_simulation = gettime(MILLISECOND);
 }
 
-static void set_ready_threads(t_table *table)
+static void	set_ready_threads(t_table *table)
 {
 	set_bool(&table->table_mutex, &table->ready_threads, true);
 }

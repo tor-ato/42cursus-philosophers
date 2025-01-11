@@ -14,12 +14,13 @@
 
 void	*alone_philo(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	wait_threads(philo->table);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
-	increase_long(&philo->table->table_mutex, &philo->table->nbr_running_threads);
+	increase_long(&philo->table->table_mutex, \
+		&philo->table->nbr_running_threads);
 	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
 	while (!finished_simulation(philo->table))
 		usleep(200);
